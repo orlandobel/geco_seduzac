@@ -13,6 +13,7 @@ class Participante extends Model
         'nombre',
         'aPaterno',
         'aMaterno',
+        'curp',
         'cct',
         'entidad',
     ];

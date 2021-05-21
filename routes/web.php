@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConstanciasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\ResourcesController;
@@ -19,4 +20,6 @@ Route::get('/', function () {
 });
 
 Route::post('/participantes/subir', [ExcelController::class, 'upload'])->name('participantes.subir');
-Route::post('/resources/plantilla', [ResourcesController::class, 'plantilla'] )->name('resources.plantilla');
+Route::post('/resources/plantilla', [ResourcesController::class, 'template'] )->name('resources.plantilla');
+Route::get('/constancia/template', [ConstanciasController::class, 'template']);
+Route::post('/constancias/crear', [ConstanciasController::class, 'generate'])->name('constancias.crear');

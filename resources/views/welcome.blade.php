@@ -137,7 +137,17 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <form action="{{ route('constancias.crear') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="curso" value="{{ $curso }}">
+                        @if(isset($participantes))
+                            @foreach($participantes as $p)
+                                <input type="hidden" name="participantes[]" value="{{ $p }}">
+                            @endforeach
+                        @endif
+                        <button type="submit" hidden id="generar"></button>
+                    </form>
+                    <a class="nav-link" href="javascript:$('#generar').trigger('click');">
                         <i class="fas fa-fw fa-wrench"></i>
                         <span>Guardar</span>
                     </a>
@@ -147,10 +157,8 @@
     
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
-    
                 <!-- Main Content -->
                 <div id="content">
-    
                     <!-- Topbar -->
                     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     </nav>
@@ -160,7 +168,7 @@
                     <div class="container-fluid">
                         <div class="row justify-content-center">
                             <div class="col-xl-10 col-lg12 col-md-9">
-                                <div class="alert alert-info" role="alert">Plantilla subida con exito</div>
+                                <div class="alert alert-info collapse" role="alert" id="template-alert" aria-label="close">Plantilla subida con exito</div>
                                 
                                 <div class="vard-o-hidden border-8 shadow-lg my-5">    
                                     <div class="card-body p-0">
@@ -313,8 +321,13 @@
         @if(isset($msg))
         <script>
             $(document).ready( function() {
-                    console.log("{{$msg}}");
+                $("#template-alert").show();
                 
+                setTimeout(function() {
+                    $("#template-alert").fadeTo(500, 0).slideUp(500, function() {
+                        $(this).remove();
+                    })
+                },2000)
             });
         </script>
         @endif
