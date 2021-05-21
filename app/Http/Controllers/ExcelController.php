@@ -33,7 +33,8 @@ class ExcelController extends Controller
                 'nombre' => $sheet->getCellByColumnAndRow(7, $i, false)->getValue(),
                 'aPaterno' => $sheet->getCellByColumnAndRow(8, $i, false)->getValue(),
                 'aMaterno' => $sheet->getCellByColumnAndRow(9, $i, false)->getValue(),
-                'cct' => $sheet->getCellByColumnAndRow(10, $i, false)->getValue()
+                'cct' => $sheet->getCellByColumnAndRow(10, $i, false)->getValue(),
+                'curp' => $sheet->getCellByColumnAndRow(4, $i, false)->getValue()
             ];
 
             if(is_null($data['entidad']) ) {

@@ -68,7 +68,7 @@ class ConstanciasController extends Controller
         foreach($request->participantes as $data_p) {
             $participante = new Participante(json_decode($data_p, true));
             ResourcesController::qrGenerate($participante, $curso);
-            $pdfname = $participante->nombre.' '.$participante->aPaterno.' '.$participante->aMaterno.'.pdf';
+            $pdfname = $participante->curp.'.pdf';
             
             $pdf = \PDF::loadView('constancia', ['p' => $participante]);
             $output = $pdf->output();
