@@ -21,5 +21,6 @@ Route::get('/', function () {
 
 Route::post('/participantes/subir', [ExcelController::class, 'upload'])->name('participantes.subir');
 Route::post('/resources/plantilla', [ResourcesController::class, 'template'] )->name('resources.plantilla');
-Route::get('/constancia/template', [ConstanciasController::class, 'template']);
+Route::get('/constancia/template/v1', [ConstanciasController::class, 'template1']);
+Route::get('/constancia/template/v2', [ConstanciasController::class, 'template2']);
 Route::post('/constancias/crear', [ConstanciasController::class, 'generate'])->name('constancias.crear');

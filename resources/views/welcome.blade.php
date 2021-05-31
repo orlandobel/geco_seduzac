@@ -29,11 +29,13 @@
         rel="stylesheet">
       <link rel="stylesheet" href="{{ asset('Templates/css/sb-admin-2.min.css') }}">
       <link rel="stylesheet" href="{{ asset('Templates/vendor/fontawesome-free/css/all.min.css') }}">
+
+      <link rel="stylesheet" href="{{ asset('customcss/excel-form.css') }}">
     </head>
     <body id="page-top">
 
         <div class="modal fade" id="db-modal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <form action="{{ route('participantes.subir') }}" method="post" enctype="multipart/form-data" id="db-form">
                     @csrf
                     <div class="modal-content">
@@ -44,8 +46,138 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <label for="" id="db_name">Seleccione un archivo</label>
-                            <h2>Cuerpo del modal</h2>
+                            <div>
+                                <label for="" id="db_name">Seleccione un archivo</label>
+                                <h2>Cuerpo del modal</h2>
+                            </div>
+                            <div class="dropdown-divider"></div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="primer_registro">Fila del primer participante</label>
+                                        <input type="text" name="primer_registro" id="primer_registro" class="form-controll row-form">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="primer_registro">Fila del ultimo participante</label>
+                                        <input type="text" name="ultimo_registro" id="último_registro" class="form-controll row-form">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dropdown-divider"></div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="row justify-content-center">
+                                        <label for="">Coloque la columna del capo solicitado</label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 border-right">
+                                            <div class="row justify-content-center mb-3">
+                                                Con respecto al participante
+                                            </div>
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-6">
+                                                    <div class="row mb-2">
+                                                        <div class="col-lg-10">
+                                                            <label for="nombre_col">Nombre</label>
+                                                        </div>
+                                                        <div class="col-lg-1">
+                                                            <input type="text" name="nombre_col" id="nombre_col" class="form-controll col-form">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-lg-10">
+                                                            <label for="paterno_col align-middle">Apellido paterno</label>
+                                                        </div>
+                                                        <div class="col-lg-1">
+                                                            <input type="text" name="paterno_col" id="paterno_col" class="form-controll col-form">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-lg-10">
+                                                            <label for="materno">Apellido Materno</label>
+                                                        </div>
+                                                        <div class="col-lg-1">
+                                                            <input type="text" name="materno_col" id="materno_col" class="form-controll col-form">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-lg-10">
+                                                            <label for="curp_col">CURP</label>
+                                                        </div>
+                                                        <div class="col-lg-1">
+                                                            <input type="text" name="curp_col" id="curp_col" class="fomr-controll col-form">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-lg-10">
+                                                            <label for="entidad_col">Entidad</label>
+                                                        </div>
+                                                        <div class="col-lg-1">
+                                                            <input type="text" name="entidad_col" id="entidad_col" class="form-contro col-form">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-lg-10">
+                                                            <label for="cct">CCT</label>
+                                                        </div>
+                                                        <div class="col-lg-1">
+                                                            <input type="text" name="cct_col" id="cct_col" class="form-contro col-form">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-lg-6">
+                                            <div class="row justify-content-center mb-3">
+                                                <label for="">Con respecto al curso</label>
+                                            </div>
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-6">
+                                                    <div class="row mb-2">
+                                                        <div class="col-lg-10">
+                                                            <label for="curso_col">Nombre</label>
+                                                        </div>
+                                                        <div class="col-lg-1">
+                                                            <input type="text" name="curso_col" id="curso_col" class="form-controll col-form">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-lg-10">
+                                                            <label for="duracion_col">Duración</label>
+                                                        </div>
+                                                        <div class="col-lg-1">
+                                                            <input type="text" name="duracion_col" id="duracion_col" class="form-controll col-form">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-lg-10">
+                                                            <label for="inicio_col">Inicio</label>
+                                                        </div>
+                                                        <div class="col-lg-1">
+                                                            <input type="text" name="inicio_col" id="inicio_col" class="form-controll col-form">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-lg-10">
+                                                            <label for="final_col">Finalización</label>
+                                                        </div>
+                                                        <div class="col-lg-1">
+                                                            <input type="text" name="final_col" id="final_col" class="form-controll col-form">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <input type="file" name="upload_db" id="upload_db" hidden accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
@@ -60,41 +192,29 @@
             </div>
         </div>
 
-        <div class="modal fade" id="template-modal" tabindex="-1" role="dialog" aria-labelledby="templateModalLabel" aria-hidden="true">
+        <div class="modal fade" id="save-modal" tabindex="-1" role="dialog" aria-labelledby="saveModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <form action="{{ route('resources.plantilla') }}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    @if(isset($curso))
+                <div class="modal-content">
+                    <form action="{{ route('constancias.crear') }}" method="POST">
+                        @csrf
                         <input type="hidden" name="curso" value="{{ $curso }}">
-                    @endif
-
-                    @if(isset($participantes))
-                        @foreach ($participantes as $p)
-                            <input type="hidden" name="participantes[]" value="{{ $p }}">
-                        @endforeach
-                    @endif
-                    
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="templateModalTitle">Seleccione la plantilla de la constancia</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
+                        @if(isset($participantes))
+                            @foreach($participantes as $p)
+                                <input type="hidden" name="participantes[]" value="{{ $p }}">
+                            @endforeach
+                        @endif
+    
                         <div class="modal-body">
-                            <label for="" id="template_name">Seleccione un archivo</label>
-                            <h2>Cuerpo del modal</h2>
+                            <input type="radio" name="plantilla" id="plantilla1" class="form-controll"  value="version1">Version 1 <br>
+                            <input type="radio" name="plantilla" id="plantilla2" class="form-controll"  value="version2">Version 2 <br>
+                            <input type="text" name="grupo_curso" id="grupo_curso" class="form-controll" disabled>
                         </div>
                         <div class="modal-footer">
-                            <input type="file" name="upload_template" id="upload_template" hidden accept="image/*">
-
-                            <a href="javascript:uploadTemplate();" class="nav-link mr-auto">Seleccionar plantilla</a>
-                            
-                            <button type="submit" class="btn btn-primary" id="submit_template" disabled>Subir</button>
+                            <button type="submit" id="generar" class="btn btn-primary">Generar</button>
                             <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
 
@@ -128,26 +248,9 @@
                         <span>Subir base de datos</span>
                     </a>
                 </li>
-    
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-toggle="modal" data-target="#template-modal">
-                        <i class="fas fa-fw fa-wrench"></i>
-                        <span>Subir plantilla</span>
-                    </a>
-                </li>
                 
                 <li class="nav-item">
-                    <form action="{{ route('constancias.crear') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="curso" value="{{ $curso }}">
-                        @if(isset($participantes))
-                            @foreach($participantes as $p)
-                                <input type="hidden" name="participantes[]" value="{{ $p }}">
-                            @endforeach
-                        @endif
-                        <button type="submit" hidden id="generar"></button>
-                    </form>
-                    <a class="nav-link" href="javascript:$('#generar').trigger('click');">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#save-modal">
                         <i class="fas fa-fw fa-wrench"></i>
                         <span>Guardar</span>
                     </a>
@@ -168,8 +271,12 @@
                     <div class="container-fluid">
                         <div class="row justify-content-center">
                             <div class="col-xl-10 col-lg12 col-md-9">
-                                <div class="alert alert-info collapse" role="alert" id="template-alert" aria-label="close">Plantilla subida con exito</div>
-                                
+                                @if($errors->any())
+                                    @foreach($errors->all() as $error)
+                                    <div class="alert alert-danger" role="alert" id="error-alert" aria-label="close">{{ $error }}</div>
+                                    @endforeach
+                                @endif
+
                                 <div class="vard-o-hidden border-8 shadow-lg my-5">    
                                     <div class="card-body p-0">
                                         <div class="row">
@@ -238,7 +345,7 @@
                         </div>
 
                         <div class="row justify-content-center">
-                            <div class="col-xl-10 xol-lg-12 col-md-9">
+                            <div class="col-xl-10 col-lg-12 col-md-9">
                                 <div class="vard-o-hidden border-8 shadow-lg my-5">
                                     <div class="card-body p-0">
                                         <div class="vard-o-hidden border-8 shadow-lg my-5">
@@ -331,5 +438,14 @@
             });
         </script>
         @endif
+
+        <script>
+            $("input[name='plantilla']").on('change', function() {
+                if(this.value == "version2")
+                    $('#grupo_curso').prop('disabled', false);
+                else
+                    $('#grupo_curso').prop('disabled', true);
+            })
+        </script>
     </body>
 </html>

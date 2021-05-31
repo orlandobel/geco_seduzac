@@ -1,0 +1,87 @@
+@page {
+    size: letter portrait;
+}
+
+/* Estilo de elementos html */
+label {
+    display: block;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+.center {
+    text-align: center;
+}
+
+.otorga {
+    margin-top: 3.5cm;
+    font-size: 16pt;
+}
+
+.constancia {
+    color: rgb(87, 167, 86);
+
+    margin-top: 1.5cm;
+    margin-bottom: 48.5pt;
+    font-size: 48.5pt;
+}
+
+.participante-area {  
+    width: 14cm;
+    border-bottom: 2pt solid rgb(167, 170, 172);
+
+}
+
+.mb-175 {
+    margin-bottom: 1.75cm;
+}
+
+.fecha {
+    font-size: 11.5pt;
+}
+
+/* Estilo de texto */
+.black {
+    font-weight: bold;
+}
+
+.arial {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.lucida {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.txt-14 {
+    font-size: 14pt;
+}
+
+/* Estilo de imagenes */
+.bg {
+    position: absolute;
+    height: 15.79cm;
+    width: 15.96cm;
+
+    top: 5.24cm;
+    left: -1.5cm;
+
+    z-index: -1;
+}
+
+.gob {
+    margin-top: 0.25cm;
+    height: 4.06cm;
+    width: 4.11cm;
+}
+
+.footer {
+    height: 4cm;
+    width: 21.74cm;
+
+    margin-top: 2.3cm;
+    position: absolute;
+    left: -1.5cm;
+}

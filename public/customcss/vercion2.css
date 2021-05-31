@@ -1,0 +1,107 @@
+@page {
+    size: letter landscape;
+
+    padding-bottom: 0cm;
+    margin-bottom: 0cm;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Clases y estilos del cuerpo de la constancia*/
+label {
+    display: block;
+}
+
+p {
+    margin-top: 1.5cm;
+    margin-bottom: 3.5cm;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.body {
+    margin-top: 3cm;
+}
+
+.lucida-12 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12pt;
+}
+
+.mg-1 {
+    margin: 0.8cm 0cm;
+}
+
+.constancia {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 47pt;
+    color: rgb(65, 64, 66);
+    
+    margin-bottom: 1cm;
+}
+
+.narrow-22 {
+    font-family: 'Arial Narrow';
+    font-size: 22pt;
+}
+
+.label-content {
+    display: contents;
+}
+
+.firma {
+    margin-top: 2.8cm;
+}
+
+.black {
+    font-weight: bold;
+}
+
+/*/ Clases y estilos de las imagenes */
+.bg {
+    position: absolute;
+    z-index: -1;
+
+    height: 16.78cm;
+    width: 20.67cm;
+
+    top: 4cm;
+}
+
+.sep {
+    height: 1.8cm;
+    width: 5.64cm;
+
+    position: absolute;
+    
+    left:0.5cm
+}
+
+.gob {
+    height: 1.87cm;
+    width: 1.94cm;
+
+    position: absolute;
+    right: 3.2cm;
+}
+
+.dgfc {
+    height: 1.79cm;
+    width: 1.81cm;
+
+    position: absolute;
+    right: 1cm;
+}
+
+.footer {
+    position: absolute;
+    height: 0.43cm;
+    width: 27.93cm;
+
+    left: -1.2cm;
+    top: 19.8cm;
+}
