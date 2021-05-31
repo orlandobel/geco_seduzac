@@ -30,6 +30,8 @@
             con una duración de {{ $c->duracion }} horas de trabajo académico. 
         </label>
         <label for="" class="fecha">Zacatecas, Zac., {{ $date }}</label>
+        
+        <img src="{{ public_path('qr.svg')}}" alt="" class="qr-img">
     </div>
     <img src="{{ public_path('img/version1/footer.png') }}" alt="" class="footer">
     

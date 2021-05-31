@@ -50,6 +50,7 @@
             </table>
     
             <label for="" class="black firma">
+                <img src="qr.svg" alt="" class="qr-img">
                 Mtro. Daniel Rodríguez Lemus<br/>
                 Subsecretario académico
             </label>

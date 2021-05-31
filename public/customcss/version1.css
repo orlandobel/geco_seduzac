@@ -77,6 +77,17 @@ table {
     width: 4.11cm;
 }
 
+.qr-img {
+    height: 2cm;
+    width: 2cm;
+
+    position: absolute;
+    right: 0cm;
+    
+    
+    z-index: -1;
+}
+
 .footer {
     height: 4cm;
     width: 21.74cm;

@@ -97,6 +97,17 @@ table {
     right: 1cm;
 }
 
+.qr-img {
+    height: 2cm;
+    width: 2cm;
+    
+    position: absolute;
+
+    right: 0cm;
+    top: 17cm;
+    z-index: -1;
+}
+
 .footer {
     position: absolute;
     height: 0.43cm;

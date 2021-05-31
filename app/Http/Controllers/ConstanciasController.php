@@ -37,9 +37,8 @@ class ConstanciasController extends Controller
         $date = strftime('%B %Y');
 
         ResourcesController::qrGenerate($p, $c);
-        $pdfname = $p->curp.'.pdf';
 
-        $pdf = \PDF::loadView('version1', ['p' => $p, 'c' =>$c, 'date' => $date]);
+        $pdf = \PDF::loadView('version1', ['p' => $p, 'c' =>$c, 'date' => $date,]);
 
         return $pdf->stream();
     }
@@ -65,14 +64,14 @@ class ConstanciasController extends Controller
         $c = new Curso($data_curso);
 
         ResourcesController::qrGenerate($p, $c);
-        $pdfname = $p->curp.'.pdf';
 
-        $pdf = \PDF::loadView('version2', ['p' => $p, 'c' => $c]);
+        $pdf = \PDF::loadView('version2', ['p' => $p, 'c' => $c, 'g' => 'foo']);
 
         return $pdf->stream();
     }
 
     public function generate(Request $request) {
+
         $this->validate($request, [
             'curso' => 'required',
             'plantilla' => 'required'
@@ -86,12 +85,13 @@ class ConstanciasController extends Controller
 
         if($request->plantilla == 'version2') {
             if(!isset($request->grupo_curso)) {
-                return redirect->back()->withErrors(['Porfavor ingrese el grupo del curso para la constancia']);
+                return redirect()->back()->withErrors(['Porfavor ingrese el grupo del curso para la constancia']);
             }
             $template_data['g'] = $request->grupo_curso;
         }
 
         set_time_limit(0);
+        ini_set('memory_limit', '512M');
 
         setlocale(LC_ALL, 'es_MX');
         $date = strftime('%B %Y');
@@ -101,10 +101,10 @@ class ConstanciasController extends Controller
         $curso = new Curso($data_curso);
         $template_data['c'] = $curso;
 
-        /*$zip = new ZipArchive();
+        $zip = new ZipArchive();
         $zipfile = 'constancias '.$curso->nombre.'.zip';
 
-        $zip->open($zipfile, ZipArchive::OVERWRITE|ZipArchive::CREATE);*/
+        $zip->open($zipfile, ZipArchive::OVERWRITE|ZipArchive::CREATE);
 
         foreach($request->participantes as $data_p) {
             $participante = new Participante(json_decode($data_p, true));
@@ -114,14 +114,13 @@ class ConstanciasController extends Controller
             $template_data['p'] = $participante;
 
             $pdf = \PDF::loadView($request->plantilla, $template_data);
-            /*$output = $pdf->output();
+            $output = $pdf->output();
             file_put_contents('constancias/'.$pdfname, $output);
 
-            $zip->addFile('constancias/'.$pdfname, $curso->nombre.'/'.$pdfname);*/
-            return $pdf->stream();
+            $zip->addFile('constancias/'.$pdfname, $curso->nombre.'/'.$pdfname);
         }
 
-        /*$zip->close();
+        $zip->close();
         header("Content-type: application/zip"); 
         header("Content-Disposition: attachment; filename=$zipfile");
         header("Content-length: " . filesize($zipfile));
@@ -133,7 +132,7 @@ class ConstanciasController extends Controller
         ob_clean();
         flush();
 
-        File::delete($zipfile);*/
+        File::delete($zipfile);
 
         return redirect()->back();
     }

@@ -193,21 +193,37 @@
         </div>
 
         <div class="modal fade" id="save-modal" tabindex="-1" role="dialog" aria-labelledby="saveModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <form action="{{ route('constancias.crear') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="curso" value="{{ $curso }}">
-                        @if(isset($participantes))
-                            @foreach($participantes as $p)
-                                <input type="hidden" name="participantes[]" value="{{ $p }}">
-                            @endforeach
-                        @endif
-    
+
                         <div class="modal-body">
-                            <input type="radio" name="plantilla" id="plantilla1" class="form-controll"  value="version1">Version 1 <br>
-                            <input type="radio" name="plantilla" id="plantilla2" class="form-controll"  value="version2">Version 2 <br>
-                            <input type="text" name="grupo_curso" id="grupo_curso" class="form-controll" disabled>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-6">
+                                    <label for="plantilla1" class="border border-dark rounded" id="label-plantilla-1">
+                                        <img src="{{ asset('img/version1.png') }}" alt="" class="img-fluid img-thumbnail">
+                                    </label>
+                                    <input type="radio" name="plantilla" id="plantilla1" class="form-controll template-radio"  value="version1" hidden>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="plantilla2" class="border border-dark rounded" id="label-plantilla-2">
+                                        <img src="{{ asset('img/version2.png') }}" alt="" class="img-fluid img-thumbnail">
+                                    </label>
+                                    <input type="radio" name="plantilla" id="plantilla2" class="form-controll"  value="version2" hidden> <br>
+
+                                    <label for="grupo_curso">Coleccion del curso</label>
+                                    <input type="text" name="grupo_curso" id="grupo_curso" class="form-controll" disabled>
+                                </div>
+                            </div>
+                            
+                            
+                            <input type="hidden" name="curso" value="{{ $curso }}">
+                                @if(isset($participantes))
+                                    @foreach($participantes as $p)
+                                        <input type="hidden" name="participantes[]" value="{{ $p }}">
+                                    @endforeach
+                                @endif
                         </div>
                         <div class="modal-footer">
                             <button type="submit" id="generar" class="btn btn-primary">Generar</button>
@@ -425,26 +441,37 @@
         <script src="{{ asset('customjs/upload_data.js') }}"></script>
         <script src="{{ asset('customjs/upload_template.js') }}"></script>
 
-        @if(isset($msg))
         <script>
-            $(document).ready( function() {
-                $("#template-alert").show();
-                
-                setTimeout(function() {
-                    $("#template-alert").fadeTo(500, 0).slideUp(500, function() {
-                        $(this).remove();
-                    })
-                },2000)
-            });
-        </script>
-        @endif
+            $(document).ready(function() {
+                if($("#plantilla1").is(':checked')) {
+                    $("#label-plantilla-1").addClass('border-primary');
+                    $("#label-plantilla-1").removeClass('border-dark');
 
-        <script>
-            $("input[name='plantilla']").on('change', function() {
-                if(this.value == "version2")
+                } else if($("#plantilla2").is(':checked')) {
+                    $("#label-plantilla-2").addClass('border-primary');
+                    $("#label-plantilla-2").removeClass('border-dark');
+
                     $('#grupo_curso').prop('disabled', false);
-                else
+                }
+            });
+
+            $("input[name='plantilla']").on('change', function() {
+                if(this.value === "version2") {
+                    $("#label-plantilla-2").addClass('border-primary');
+                    $("#label-plantilla-2").removeClass('border-dark');
+
+                    $('#label-plantilla-1').removeClass("border-primary");
+                    $('#label-plantilla-1').addClass('border-dark');
+                    $('#grupo_curso').prop('disabled', false);
+                } else {
+                    $("#label-plantilla-1").addClass('border-primary');
+                    $("#label-plantilla-1").removeClass('border-dark');
+
+                    $('#label-plantilla-2').removeClass("border-primary");
+                    $('#label-plantilla-2').addClass('border-dark');
+
                     $('#grupo_curso').prop('disabled', true);
+                    }
             })
         </script>
     </body>
