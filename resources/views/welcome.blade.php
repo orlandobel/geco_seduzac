@@ -48,7 +48,6 @@
                         <div class="modal-body">
                             <div>
                                 <label for="" id="db_name">Seleccione un archivo</label>
-                                <h2>Cuerpo del modal</h2>
                             </div>
                             <div class="dropdown-divider"></div>
 
@@ -240,11 +239,11 @@
             <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
     
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                    <div class="sidebar-brand-icon rotate-n-15">
-                        <i class="fas fa-laugh-wink"></i>
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+                    <div class="sidebar-brand-icon bg-white ">
+                        <img src="{{ asset('img/version2/dgfc.png') }}" alt="">
                     </div>
-                    <div class="sidebar-brand-text mx-3">SEDUZAC</sup></div>
+                    
                 </a>
     
                 <!-- Divider -->
@@ -260,14 +259,14 @@
                 
                 <li class="nav-item">
                     <a href="#" class="nav-link" data-toggle="modal" data-target="#db-modal">
-                        <i class="fas fa-fw fa-wrench"></i>
+                        <i class="fas fa-fw fa-upload"></i>
                         <span>Subir base de datos</span>
                     </a>
                 </li>
                 
                 <li class="nav-item">
                     <a href="#" class="nav-link" data-toggle="modal" data-target="#save-modal">
-                        <i class="fas fa-fw fa-wrench"></i>
+                        <i class="fas fa-fw fa-download"></i>
                         <span>Guardar</span>
                     </a>
                 </li>
